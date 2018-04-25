@@ -23,30 +23,51 @@ public class NftClientResponse<T> {
 
 	/**
 	 * <p>HTTP status code.</p>
-	 * <p>When it's {@code -1} it means an {@link java.io.IOException} is occurred.</p>
+	 * <p>When it's {@code -1} it means an {@link java.io.IOException} is occurred when parsing the response or in the network even before hitting the API server.</p>
 	 */
 	private int status;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	private String error;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	private List<Map<String, Object>> errors;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
 	private ZonedDateTime timestamp;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	private String message;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	private String path;
 
+	/**
+	 * Only available if response has error, null otherwise
+	 */
 	private String traceId;
 
+	/**
+	 * Payload is null if {@code T} is of type {@link java.lang.Void} i.e {@code NftClientResponse<Void>} or there is an error i.e {@code nftClientResponse.isSuccess()} is false.
+	 */
 	private T payload;
 
 
 	private NftClientResponse() {
 	}
 
-	public static <T> NftClientResponse<T> of(Response<T> response) {
+	static <T> NftClientResponse<T> of(Response<T> response) {
 
 		if (log.isDebugEnabled()) {
 			log.debug("Returning response {}", response);
@@ -72,7 +93,7 @@ public class NftClientResponse<T> {
 		return nftClientResponse;
 	}
 
-	public static <T> NftClientResponse<T> of(IOException e) {
+	static <T> NftClientResponse<T> of(IOException e) {
 		log.error(e.getMessage(), e);
 		NftClientResponse<T> nftClientResponse = new NftClientResponse<>();
 		nftClientResponse.setStatus(-1);

@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.function.Function;
 
 /**
+ * <p>Instances of this class are thread-safe hence you are encouraged to reuse a single instance of this class.</p>
+ *
  * Created on April, 2018
  *
  * @author destan
@@ -28,6 +30,12 @@ public class NtfClient {
 		mapper.registerModule(new JavaTimeModule());
 	}
 
+	/**
+	 *
+	 * @param appName	Your API application's name as appeared in NFT dashboard, case sensitive.
+	 * @param apiKey	Your API key for the application whose name is given as {@code appName}
+	 * @param apiUrl	API url in the form of {@code https://<domain>:<port>/api/v1/}. You can omit port if its 80.
+	 */
 	public NtfClient(String appName, String apiKey, String apiUrl) {
 
 		if(appName == null || appName.trim().isEmpty()) {

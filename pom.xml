@@ -6,7 +6,7 @@
 
   <groupId>com.kodgemisi.nft</groupId>
   <artifactId>rest-client</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 
   <name>nft-rest-client</name>
   <url>http://www.example.com</url>
@@ -50,7 +50,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>[1.7.0, 1.8.0)</version>
-      <!--<scope>provided</scope>-->
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

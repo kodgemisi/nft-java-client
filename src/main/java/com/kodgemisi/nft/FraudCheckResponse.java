@@ -11,12 +11,18 @@ import java.util.Objects;
 @ToString
 public class FraudCheckResponse {
 
+	/**
+	 * transactionId
+	 */
 	private String tid;
 
 	private double score;
 
 	private boolean abuse;
 
+	/**
+	 * The optional string given by you in the request.
+	 */
 	private String trackToken;
 
 	private Integer remainingQuota;
