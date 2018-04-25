@@ -1,5 +1,11 @@
 # NFT Java Client
 
+## Usage
+
+[Please see ClientDemo.java](/src/main/java/com/example/ClientDemo.java)
+
+## Add as dependency
+
 https://jitpack.io/#kodgemisi/nft-java-client
 
 ```
